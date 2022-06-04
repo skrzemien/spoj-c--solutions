@@ -5,38 +5,36 @@ namespace spoj
 {
     internal class Program
     {
-        private static bool PrimeTest(int PrimeNumber)
-        {
-            if (PrimeNumber < 2)
-                return false;
-            for (int i = 2; i < (PrimeNumber/2)+1; i++)
-            {
-                if (PrimeNumber % i == 0)
-                    return false;
-            }
-            return true;
-        }
         static void Main(string[] args)
         {           
-            string InputToPrimesCount = Console.ReadLine();
-            Int32.TryParse(InputToPrimesCount, out int PrimesCount);
-            int[] ArrayOfPrimes = new int[PrimesCount];
-            for (int i = 0; i < PrimesCount; i++)
+            string InputNumbersCount = Console.ReadLine();
+            Int32.TryParse(InputNumbersCount, out int NumbersCount);
+            int[] ArrayOfNumbers = new int[NumbersCount];
+            for (int i = 0; i < NumbersCount; i++)
             {
-                string InputPrimeNumber = Console.ReadLine();
-                Int32.TryParse(InputPrimeNumber, out int PrimeNumber);
-                ArrayOfPrimes[i] = PrimeNumber;
+                string InputNumber = Console.ReadLine();
+                Int32.TryParse(InputNumber, out int Number);
+                ArrayOfNumbers[i] = Number;
             }
-            foreach (int PrimeNumber in ArrayOfPrimes)
+            foreach (int Number in ArrayOfNumbers)
             {
-                if (PrimeTest(PrimeNumber) == true)
+                if (IsNumberPrime(Number) == true)
                     Console.WriteLine("TAK");
                 else
                     Console.WriteLine("NIE");
             }
-
             Console.ReadLine();
-
+        }
+        private static bool IsNumberPrime(int Number)
+        {
+            if (Number < 2)
+                return false;
+            for (int i = 2; i < (Number / 2) + 1; i++)
+            {
+                if (Number % i == 0)
+                    return false;
+            }
+            return true;
         }
     }
 }
