@@ -11,7 +11,10 @@ namespace spoj
             Int32.TryParse(InputTestsNumber, out int TestsNumber);
             for (int i = 1; i <= TestsNumber; i++)
             {
-                Console.WriteLine(i);
+                string InputNumbers = Console.ReadLine();
+                Int32.TryParse(InputNumbers, out int Numbers);
+                
+
             }
 
             Console.ReadLine();
